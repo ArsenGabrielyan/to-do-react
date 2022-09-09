@@ -12,7 +12,6 @@ class AddPage extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this)
     }
     handleSubmit(e){
-        alert("Name: " + this.state.v1 + ", Date: " + this.state.v2)
         localStorage.setItem("Name", this.state.v1)
         localStorage.setItem("Date", this.state.v2)
         e.preventDefault()
