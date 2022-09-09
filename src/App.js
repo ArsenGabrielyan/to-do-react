@@ -1,15 +1,17 @@
-import logo from './logo.svg';
+import { Icon } from '@iconify/react';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Սա սովորական React.JS Պրոյեկտ է
-        </p>
-      </header>
+      <div className="menu">
+        <div className="buttons">
+          <button><Icon icon="carbon:add-filled" /> Add to do</button>
+          <button><Icon icon="carbon:add-filled" /> Add to do</button>
+          <button><Icon icon="carbon:add-filled" /> Add to do</button>
+        </div>
+      </div>
+      <div className="container"></div>
     </div>
   );
 }
