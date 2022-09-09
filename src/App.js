@@ -1,5 +1,6 @@
 import { Icon } from '@iconify/react';
 import './App.css';
+import ToDoItem from "./components/item";
 
 function App() {
   return (
@@ -14,7 +15,16 @@ function App() {
             <span className="pink btn3"><Icon icon="bi:list-check" /></span>
         </div>
       </div>
-      <div className="container"></div>
+      <div className="container">
+          <ToDoItem />
+          <ToDoItem />
+          <ToDoItem />
+          <ToDoItem />
+          <ToDoItem />
+          <div className="btnControls">
+              <button className="pinkbtn">Move</button>
+          </div>
+      </div>
     </div>
   );
 }
