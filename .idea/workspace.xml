@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23d2a5cf-e8f1-4ff9-9672-825490f28d52" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/activeitem.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/additem.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/completeditemlist.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/additem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/additem.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +52,7 @@
       <workItem from="1662723812334" duration="27000" />
       <workItem from="1662723942340" duration="99000" />
       <workItem from="1662724064032" duration="3963000" />
-      <workItem from="1662728240704" duration="1694000" />
+      <workItem from="1662728240704" duration="2905000" />
     </task>
     <servers />
   </component>

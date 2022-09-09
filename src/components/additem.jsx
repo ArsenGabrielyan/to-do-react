@@ -17,7 +17,18 @@ class AddPage extends React.Component{
                     </div>
                 </div>
                 <div className="container">
-
+                    <div className="addbg">
+                        <h2>Add Task</h2>
+                        <form action="#">
+                            <input type="text" name="taskname" placeholder="Name" className="inputTxt"/>
+                            <div className="btnControls">
+                                <button className="pinkbtn" type="submit">Add Task</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div className="successbg">
+                        <h2>This is a Message</h2>
+                    </div>
                 </div>
             </>
         )

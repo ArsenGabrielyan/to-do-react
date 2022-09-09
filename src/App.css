@@ -53,6 +53,7 @@
   -webkit-box-shadow: 0px 5px 5px -1px #000000;
   box-shadow: 0px 5px 5px -1px #000000;
   background: #1A1818;
+  cursor: pointer;
 }
 .btn1,.btn2,.btn3{
   position: absolute;
@@ -93,4 +94,40 @@
   background: #7F6067;
   color: white;
   border: 2px solid white;
+  cursor: pointer;
+}
+.addbg{
+  background: #222121;
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+}
+.addbg h2{
+  text-align: center;
+  padding: 20px;
+}
+.inputTxt{
+  width: 100%;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: .3s linear;
+}
+.inputTxt:focus{
+  border-color: dodgerblue;
+  box-shadow: 0 0 8px 0 dodgerblue;
+}
+
+.successbg{
+  background: #D4EDDA;
+  border-radius: 10px;
+  padding: 20px;
+  color: #155724;
+  margin: 15px 0;
+}
+.successbg h2 {
+  text-align: center;
 }
