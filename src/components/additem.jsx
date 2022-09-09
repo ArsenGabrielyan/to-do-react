@@ -3,6 +3,26 @@ import {Link} from "react-router-dom";
 import {Icon} from "@iconify/react";
 
 class AddPage extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state= {v1:"", v2:""}
+
+        this.handleChange1 = this.handleChange1.bind(this)
+        this.handleChange2 = this.handleChange2.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+    handleSubmit(e){
+        alert("Name: " + this.state.v1 + ", Date: " + this.state.v2)
+        localStorage.setItem("Name", this.state.v1)
+        localStorage.setItem("Date", this.state.v2)
+        e.preventDefault()
+    }
+    handleChange1(e){
+        this.setState({v1: e.target.value})
+    }
+    handleChange2(e){
+        this.setState({v2: e.target.value})
+    }
     render(){
         return(
             <>
@@ -19,8 +39,9 @@ class AddPage extends React.Component{
                 <div className="container">
                     <div className="addbg">
                         <h2>Add Task</h2>
-                        <form action="#">
-                            <input type="text" name="taskname" placeholder="Name" className="inputTxt"/>
+                        <form onSubmit={this.handleSubmit}>
+                            <input type="text" name="taskname" placeholder="Name" className="inputTxt" value={this.state.v1} onChange={this.handleChange1}/>
+                            <input type="date" name="taskdate" className="inputTxt" value={this.state.v2} onChange={this.handleChange2}/>
                             <div className="btnControls">
                                 <button className="pinkbtn" type="submit">Add Task</button>
                             </div>
