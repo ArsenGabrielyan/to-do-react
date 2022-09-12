@@ -1,16 +1,16 @@
 import './App.scss';
 import {Routes, Route} from "react-router-dom";
-import ActivePage from "./components/activeitem";
-import CompletedPage from "./components/completeditemlist";
-import AddPage from "./components/additem";
+import ActiveToDos from './components/activeitem';
+import CompletedToDos from './components/completeditemlist';
+import AddToDo from './components/additem';
 
 function App() {
   return (
     <div className="App">
         <Routes>
-            <Route path="/" element={<ActivePage/>} />
-            <Route path="/completed" element={<CompletedPage/>} />
-            <Route path="/add" element={<AddPage/>} />
+            <Route path="/" element={<ActiveToDos/>} />
+            <Route path="/completed" element={<CompletedToDos/>} />
+            <Route path="/add" element={<AddToDo/>} />
         </Routes>
     </div>
   );

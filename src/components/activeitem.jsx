@@ -3,9 +3,12 @@ import {Icon} from "@iconify/react";
 import ToDoItem from "./item";
 import {Link} from "react-router-dom";
 
-
-
-class ActivePage extends React.Component{
+class ActiveToDos extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {disabled: false}
+        this.handleClick = this.handleClick.bind(this)
+    }
     render(){
         return(
             <>
@@ -22,7 +25,7 @@ class ActivePage extends React.Component{
                 <div className="container">
                     <ToDoItem />
                     <div className="btnControls">
-                        <button className="pinkbtn">Move</button>
+                        <button className="pinkbtn" id="moveBtn" disabled>Move</button>
                     </div>
                 </div>
             </>
@@ -30,4 +33,4 @@ class ActivePage extends React.Component{
     }
 }
 
-export default ActivePage
+export default ActiveToDos

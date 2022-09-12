@@ -1,33 +1,60 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {Icon} from "@iconify/react";
+import moment from "moment/moment";
 
 export const arrActive = JSON.parse(localStorage.getItem("items")) || []
+export const arrCompleted = []
 
-class AddPage extends React.Component{
+const initialState = {name:"", date:"", errorBox:""}
+
+class AddToDo extends React.Component{
     constructor(props) {
         super(props);
-        this.state= {v1:"", v2:"", nameValid: false, dateValid: false, formValid: false}
+        this.state= {name:"", date:"", errorBox:""}
 
-        this.handleChange1 = this.handleChange1.bind(this)
-        this.handleChange2 = this.handleChange2.bind(this)
+        this.handleChangeName = this.handleChangeName.bind(this)
+        this.handleChangeDate = this.handleChangeDate.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-    handleSubmit(e){
-        const item = {
-            name: this.state.v1,
-            date: this.state.v2,
-            checked: false
+    validate(){
+        let errorText = ""
+        let date = moment(this.state.date).isValid()
+        if(!this.state.name || !this.state.date){
+            errorText = "Required"
         }
-        arrActive.push(item)
-        localStorage.setItem("items", JSON.stringify(arrActive))
+        if(this.state.name.length < 2){
+            errorText = "Invalid Name"
+        }
+        if(!date){
+            errorText = "Invalid Date"
+        }
+        if(errorText){
+            this.setState({errorBox: errorText});
+            return false
+        }
+        return true
+    }
+    handleSubmit(e){
+        const isValid = this.validate()
+        if(isValid){
+            console.log("It is Valid")
+            const item = {
+                name: this.state.name,
+                date: this.state.date,
+                checked: false,
+            }
+            arrActive.push(item)
+            localStorage.setItem("items", JSON.stringify(arrActive))
+            this.setState(initialState)
+        }
         e.preventDefault()
     }
-    handleChange1(e){
-        this.setState({v1: e.target.value})
+    handleChangeName(e){
+        this.setState({name: e.target.value})
     }
-    handleChange2(e){
-        this.setState({v2: e.target.value})
+    handleChangeDate(e){
+        this.setState({date: e.target.value})
     }
     render(){
         return(
@@ -45,13 +72,14 @@ class AddPage extends React.Component{
                 <div className="container">
                     <div className="addbg">
                         <h2>Add Task</h2>
-                        <form onSubmit={this.handleSubmit}>
-                            <input type="text" name="taskname" placeholder="Name" className="inputTxt" value={this.state.v1} onChange={this.handleChange1}/>
-                            <input type="date" name="taskdate" className="inputTxt" value={this.state.v2} onChange={this.handleChange2}/>
+                         <form onSubmit={this.handleSubmit}>
+                            <input type="text" name="taskname" placeholder="Name" className="inputTxt" value={this.state.name} onChange={this.handleChangeName}/>
+                            <input type="date" name="taskdate" className="inputTxt" value={this.state.date} onChange={this.handleChangeDate}/>
                             <div className="btnControls">
                                 <button className="pinkbtn" type="submit">Add Task</button>
                             </div>
                         </form>
+                        <h2>{this.state.errorBox}</h2>
                     </div>
                 </div>
             </>
@@ -59,4 +87,4 @@ class AddPage extends React.Component{
     }
 }
 
-export default AddPage;
+export default AddToDo;

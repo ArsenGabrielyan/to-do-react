@@ -1,21 +1,12 @@
 import React from "react";
 import {Icon} from "@iconify/react";
-import { arrActive } from "./additem";
+import { arrCompleted} from "./additem";
 
-function ToDoItem(){
-    const [checked, setChecked] = React.useState(false)
-    const isSubmitted = ()=>{
-        if(checked){
-            document.getElementById("movebtn").removeAttribute("disabled")
-        } else{
-            document.getElementById("movebtn").setAttribute("disabled", true)
-        }
-    }
-    
-    React.useEffect(()=> isSubmitted());
+
+function CompletedItem(){
     return(
         <>
-        {arrActive.map((item,index)=>{
+        {arrCompleted.map((item,index)=>{
             return(
                 <div className="toDoItem" key={index}>
                     <div className="item1">
@@ -27,7 +18,7 @@ function ToDoItem(){
                     </div>
                 </div>
                 <div className="item2">
-                    <input type="checkbox" onClick={(e)=> setChecked(e.target.value)}/>
+                    <button className="deleteBtn"><Icon icon="ant-design:delete-outlined" /></button>
                 </div>
             </div>
             )
@@ -36,4 +27,4 @@ function ToDoItem(){
     )
 }
 
-export default ToDoItem
+export default CompletedItem

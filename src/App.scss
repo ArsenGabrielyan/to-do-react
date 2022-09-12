@@ -57,6 +57,10 @@
     border: 2px solid white;
     cursor: pointer;
   }
+  &:disabled{
+    background: gray;
+    cursor: auto;
+  }
 }
 .green {
   color: green;
@@ -132,4 +136,14 @@
 }
 .iconSpace{
   padding-right: 10px;
+}
+.deleteBtn{
+  font-size: 20px;
+  color: white;
+  background: none;
+  border: none;
+  &:hover{
+    color: #aaa;
+    cursor: pointer;
+  }
 }

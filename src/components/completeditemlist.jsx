@@ -1,8 +1,9 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {Icon} from "@iconify/react";
+import CompletedItem from "./completed";
 
-class CompletedPage extends React.Component{
+class CompletedToDos extends React.Component{
     render(){
         return(
             <>
@@ -17,11 +18,11 @@ class CompletedPage extends React.Component{
                     </div>
                 </div>
                 <div className="container">
-
+                    <CompletedItem />
                 </div>
             </>
         )
     }
 }
 
-export default CompletedPage
+export default CompletedToDos
