@@ -2,18 +2,25 @@ import React from "react";
 import {Link} from "react-router-dom";
 import {Icon} from "@iconify/react";
 
+export const arrActive = JSON.parse(localStorage.getItem("items")) || []
+
 class AddPage extends React.Component{
     constructor(props) {
         super(props);
-        this.state= {v1:"", v2:""}
+        this.state= {v1:"", v2:"", nameValid: false, dateValid: false, formValid: false}
 
         this.handleChange1 = this.handleChange1.bind(this)
         this.handleChange2 = this.handleChange2.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
     handleSubmit(e){
-        localStorage.setItem("Name", this.state.v1)
-        localStorage.setItem("Date", this.state.v2)
+        const item = {
+            name: this.state.v1,
+            date: this.state.v2,
+            checked: false
+        }
+        arrActive.push(item)
+        localStorage.setItem("items", JSON.stringify(arrActive))
         e.preventDefault()
     }
     handleChange1(e){
@@ -46,13 +53,10 @@ class AddPage extends React.Component{
                             </div>
                         </form>
                     </div>
-                    <div className="successbg">
-                        <h2>This is a Message</h2>
-                    </div>
                 </div>
             </>
         )
     }
 }
 
-export default AddPage
+export default AddPage;

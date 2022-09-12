@@ -1,7 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {Icon} from "@iconify/react";
-import ToDoItem from "./item";
 
 class CompletedPage extends React.Component{
     render(){
