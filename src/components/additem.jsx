@@ -11,7 +11,7 @@ const initialState = {name:"", date:"", errorBox:""}
 class AddToDo extends React.Component{
     constructor(props) {
         super(props);
-        this.state= {name:"", date:"", errorBox:""}
+        this.state= {name:"", date:"", errorBox:"", checked: false}
 
         this.handleChangeName = this.handleChangeName.bind(this)
         this.handleChangeDate = this.handleChangeDate.bind(this)
@@ -19,14 +19,14 @@ class AddToDo extends React.Component{
     }
     validate(){
         let errorText = ""
-        let date = moment(this.state.date).isValid()
+        let date = moment(this.state.date, "YYYY-MM-DD", true)
         if(!this.state.name || !this.state.date){
             errorText = "Required"
         }
-        if(this.state.name.length < 2){
+        if(this.state.name.trim().length < 2){
             errorText = "Invalid Name"
         }
-        if(!date){
+        if(!date.isValid()){
             errorText = "Invalid Date"
         }
         if(errorText){
@@ -38,11 +38,10 @@ class AddToDo extends React.Component{
     handleSubmit(e){
         const isValid = this.validate()
         if(isValid){
-            console.log("It is Valid")
             const item = {
                 name: this.state.name,
                 date: this.state.date,
-                checked: false,
+                checked: this.state.checked,
             }
             arrActive.push(item)
             localStorage.setItem("items", JSON.stringify(arrActive))
