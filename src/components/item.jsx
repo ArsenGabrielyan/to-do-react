@@ -1,8 +1,12 @@
 import React from "react";
 import {Icon} from "@iconify/react";
-import { arrActive } from "./additem";
+import { arrActive, arrCompleted } from "./additem";
 
 class ToDoItem extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {arrays: arrActive}
+    }
     handleCheckbox(e, index){
         arrActive[index].checked = e.target.checked
         let hasChecked = arrActive.some(item =>{
@@ -10,6 +14,16 @@ class ToDoItem extends React.Component{
         })
         if(hasChecked){
             document.getElementById("moveBtn").removeAttribute("disabled")
+            document.getElementById("moveBtn").addEventListener("click", ()=>{
+                if(arrActive[index].checked === true){
+                    arrCompleted.push(arrActive[index]);
+                    arrActive.splice(index,1)
+                    this.setState({arrays: arrActive})
+                    console.log(arrActive);
+                    localStorage.setItem("items", JSON.stringify(arrActive));
+                    localStorage.setItem("completed", JSON.stringify(arrCompleted));
+                }
+            })
         } else{
             document.getElementById("moveBtn").setAttribute("disabled", true)
         }
@@ -17,7 +31,7 @@ class ToDoItem extends React.Component{
     render(){
         return(
             <>
-            {arrActive.map((item,index)=>{
+            {this.state.arrays.map((item,index)=>{
                 return(
                     <div className="toDoItem" key={index}>
                         <div className="item1">

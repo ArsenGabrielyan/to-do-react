@@ -20,7 +20,7 @@ class ActiveToDos extends React.Component{
                 <div className="container">
                     <ToDoItem />
                     <div className="btnControls">
-                        <button className="pinkbtn" id="moveBtn" disabled>Move</button>
+                        <button className="pinkbtn" id="moveBtn" disabled onClick={(e) => this.handleClick(e)}>Move</button>
                     </div>
                 </div>
             </>

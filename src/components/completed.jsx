@@ -2,11 +2,20 @@ import React from "react";
 import {Icon} from "@iconify/react";
 import { arrCompleted} from "./additem";
 
-
-function CompletedItem(){
-    return(
+class CompletedItem extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {completedArr: arrCompleted}
+    }
+    handleClick(index){
+        arrCompleted.splice(index,1);
+        this.setState({completedArr: arrCompleted})
+        localStorage.setItem("completed", JSON.stringify(arrCompleted));
+    }
+    render(){
+       return(
         <>
-        {arrCompleted.map((item,index)=>{
+        {this.state.completedArr.map((item,index)=>{
             return(
                 <div className="toDoItem" key={index}>
                     <div className="item1">
@@ -18,13 +27,15 @@ function CompletedItem(){
                     </div>
                 </div>
                 <div className="item2">
-                    <button className="deleteBtn"><Icon icon="ant-design:delete-outlined" /></button>
+                    <button className="deleteBtn" onClick={()=> this.handleClick(index)}><Icon icon="ant-design:delete-outlined" /></button>
                 </div>
             </div>
             )
         })}
-            </>
-    )
+            </> 
+       )
+    }
 }
+
 
 export default CompletedItem

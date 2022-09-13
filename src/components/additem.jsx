@@ -4,7 +4,7 @@ import {Icon} from "@iconify/react";
 import moment from "moment/moment";
 
 export const arrActive = JSON.parse(localStorage.getItem("items")) || []
-export const arrCompleted = []
+export const arrCompleted = JSON.parse(localStorage.getItem("completed")) || []
 
 const initialState = {name:"", date:"", errorBox:""}
 
