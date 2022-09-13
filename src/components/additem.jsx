@@ -11,7 +11,7 @@ const initialState = {name:"", date:"", errorBox:""}
 class AddToDo extends React.Component{
     constructor(props) {
         super(props);
-        this.state= {name:"", date:"", errorBox:"", checked: false}
+        this.state= {name:"", date:"", errorBox:""}
 
         this.handleChangeName = this.handleChangeName.bind(this)
         this.handleChangeDate = this.handleChangeDate.bind(this)
@@ -41,7 +41,7 @@ class AddToDo extends React.Component{
             const item = {
                 name: this.state.name,
                 date: this.state.date,
-                checked: this.state.checked,
+                checked: false,
             }
             arrActive.push(item)
             localStorage.setItem("items", JSON.stringify(arrActive))
