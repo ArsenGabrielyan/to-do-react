@@ -5,7 +5,7 @@ import { arrActive, arrCompleted } from "./additem";
 class ToDoItem extends React.Component{
     constructor(props){
         super(props);
-        this.state = {arrays: arrActive}
+        this.state = {activeArrays: arrActive}
     }
     handleCheckbox(e, index){
         arrActive[index].checked = e.target.checked
@@ -18,7 +18,7 @@ class ToDoItem extends React.Component{
                 if(arrActive[index].checked === true){
                     arrCompleted.push(arrActive[index]);
                     arrActive.splice(index,1)
-                    this.setState({arrays: arrActive})
+                    this.setState({activeArrays: arrActive})
                     console.log(arrActive);
                     localStorage.setItem("items", JSON.stringify(arrActive));
                     localStorage.setItem("completed", JSON.stringify(arrCompleted));
@@ -31,7 +31,7 @@ class ToDoItem extends React.Component{
     render(){
         return(
             <>
-            {this.state.arrays.map((item,index)=>{
+            {this.state.activeArrays.map((item,index)=>{
                 return(
                     <div className="toDoItem" key={index}>
                         <div className="item1">
@@ -39,7 +39,7 @@ class ToDoItem extends React.Component{
                             <h3>{item.name}</h3>
                         </div>
                         <div className="right">
-                            <p><span className="green iconSpace"><span className="txtSpace"></span> <Icon icon="clarity:date-line"/></span>{item.date}</p>
+                            <p><span className="green iconSpace"><span className="txtSpace"></span><Icon icon="clarity:date-line"/></span>{item.date}</p>
                         </div>
                     </div>
                     <div className="item2">

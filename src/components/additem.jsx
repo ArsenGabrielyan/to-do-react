@@ -12,7 +12,6 @@ class AddToDo extends React.Component{
     constructor(props) {
         super(props);
         this.state= {name:"", date:"", errorBox:""}
-
         this.handleChangeName = this.handleChangeName.bind(this)
         this.handleChangeDate = this.handleChangeDate.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -31,9 +30,9 @@ class AddToDo extends React.Component{
         }
         if(errorText){
             this.setState({errorBox: errorText});
-            return false
+            return false;
         }
-        return true
+        return true;
     }
     handleSubmit(e){
         const isValid = this.validate()
@@ -61,11 +60,11 @@ class AddToDo extends React.Component{
                 <div className="menu">
                     <div className="buttons">
                         <Link to="/add" className="menuButton active">Add to do</Link>
-                        <span className="pink btn1"><Icon icon="carbon:add-filled" /></span>
+                        <span className="pink btnAdd"><Icon icon="carbon:add-filled" /></span>
                         <Link to="/" className="menuButton">To Do List</Link>
-                        <span className="pink btn2"><Icon icon="bi:card-list" /></span>
+                        <span className="pink btnActiveToDos"><Icon icon="bi:card-list" /></span>
                         <Link to="/completed" className="menuButton">Completed</Link>
-                        <span className="pink btn3"><Icon icon="bi:list-check" /></span>
+                        <span className="pink btnCompletedToDos"><Icon icon="bi:list-check" /></span>
                     </div>
                 </div>
                 <div className="container">

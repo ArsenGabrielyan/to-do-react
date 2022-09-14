@@ -71,16 +71,16 @@
   background: #1A1818;
   cursor: pointer;
 }
-.btn1 {
+.btnAdd {
   position: absolute;
   left: 40px;
   top: 40px;
 }
-.btn2 {
+.btnActiveToDos {
   position: absolute;
   left: 40px;
 }
-.btn3 {
+.btnCompletedToDos {
   position: absolute;
   left: 40px;
   bottom: 40px;
@@ -142,6 +142,7 @@
   color: white;
   background: none;
   border: none;
+  transition: .3s linear;
   &:hover{
     color: #aaa;
     cursor: pointer;
