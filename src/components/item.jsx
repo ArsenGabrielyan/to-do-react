@@ -15,11 +15,10 @@ class ToDoItem extends React.Component{
         if(hasChecked){
             document.getElementById("moveBtn").removeAttribute("disabled")
             document.getElementById("moveBtn").addEventListener("click", ()=>{
-                if(arrActive[index].checked === true){
+                if(arrActive[index].checked){
                     arrCompleted.push(arrActive[index]);
                     arrActive.splice(index,1)
                     this.setState({activeArrays: arrActive})
-                    console.log(arrActive);
                     localStorage.setItem("items", JSON.stringify(arrActive));
                     localStorage.setItem("completed", JSON.stringify(arrCompleted));
                 }
