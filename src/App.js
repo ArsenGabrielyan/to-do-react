@@ -4,7 +4,7 @@ import ActiveToDos from './components/activeitem';
 import CompletedToDos from './components/completeditemlist';
 import AddToDo from './components/additem';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
         <Routes>
@@ -15,5 +15,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
