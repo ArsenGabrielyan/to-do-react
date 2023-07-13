@@ -1,8 +1,4 @@
-$color: #FFC0CB;
-$focusColor: #0090ff;
-$hoverColor: #7F6067;
-$dark: #222;
-$black: #111;
+@import "./scss/defaults.scss";
 * {
   margin: 0;padding: 0;
   box-sizing: border-box;
@@ -13,118 +9,14 @@ $black: #111;
   grid-template-columns: 25% 75%;
   min-height: 100vh;
 }
-.menu {background: $dark;}
+.txt{
+  text-align: center;
+  color: #fff;
+  font-size: 32px;
+}
 .container {background: $black;padding: 25px;}
-.buttons {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 25px;
-  position: relative;
-}
-.menuButton {
-  width: 100%;height: 50px;
-  background: none;
-  color: white;
-  border: none;
-  text-align: left;
-  font-size: 16px;
-  transition: .3s linear;
-  padding: 12px 50px;
-  &:hover {
-    -webkit-box-shadow: 0px 5px 5px -1px $black;
-    box-shadow: 0px 5px 5px -1px $black;
-    background: $black;
-    cursor: pointer;
-  }
-  &.active{
-    -webkit-box-shadow: 0px 5px 5px -1px $black;
-    box-shadow: 0px 5px 5px -1px $black;
-    background: $black;
-    cursor: pointer;
-  }
-}
-.col {
-  color: $color;
-  &btn{
-    background: $color;
-    color: $black;
-    border: 2px solid $black;
-    padding: 12px 24px;
-    font-size: 20px;
-    transition: .3s linear;
-    &:hover {
-      background: $hoverColor;
-      color: #fff;
-      border: 2px solid #fff;
-      cursor: pointer;
-    }
-    &:disabled{background: gray;cursor: auto;}
-  }
-}
-.green {color: green;}
-.btnAdd {
-  position: absolute;
-  left: 40px;top: 40px;
-}
-.btnActiveToDos {
-  position: absolute;
-  left: 40px;
-}
-.btnCompletedToDos {
-  position: absolute;
-  left: 40px;bottom: 40px;
-}
-.toDoItem {
-  height: 100px;
-  background: $dark;
-  border-radius: 10px;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: 90% 10%;
-  color: #fff;
-  margin: 5px;
-}
-.item1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.item2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.btnControls {
-  margin: 20px;
-  display: flex;
-  justify-content: right;
-}
-.addbg {
-  background: $dark;
-  border-radius: 10px;
-  padding: 20px;
-  color: #fff;
-  h2 {text-align: center;padding: 20px;}
-}
-.inputTxt {
-  width: 100%;
-  border: 2px solid #aaa;
-  border-radius: 4px;
-  margin: 8px 0;
-  outline: none;
-  padding: 8px;
-  box-sizing: border-box;
-  transition: .3s linear;
-  &:focus {border-color: $focusColor;box-shadow: 0 0 8px 0 $focusColor;}
-}
-.iconSpace{padding-right: 10px;}
-.deleteBtn{
-  font-size: 20px;
-  color: white;
-  background: none;
-  border: none;
-  transition: .3s linear;
-  &:hover{color: #aaa;cursor: pointer;}
-}
+.menu {background: $dark;}
+@import "./scss/buttons.scss";
+@import "./scss/item.scss";
+@import "./scss/form.scss";
+@import "./scss/responsive.scss";

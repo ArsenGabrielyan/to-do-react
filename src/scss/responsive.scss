@@ -1,0 +1,14 @@
+@media screen and (max-width: 800px){
+     .App{
+          grid-template-columns: 100%;
+          grid-template-rows: 18% 82%;
+     }
+}
+@media screen and (max-width: 500px){
+     .App{grid-template-rows: 24% 76%;}
+     .btnControls{
+          flex-direction: column;
+          button{margin: 5px 0;}
+     }
+     .txt{font-size: 25px;}
+}

@@ -1,47 +1,45 @@
-import React from "react";
 import {Icon} from "@iconify/react";
-import { arrActive, arrCompleted } from "./additem";
+import { arrActive, arrCompleted } from "../data/initialData";
+import { useState } from "react";
 
-export default class ToDoItem extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {activeArrays: arrActive}
-    }
-    handleCheckbox(e, index){
-        arrActive[index].checked = e.target.checked;
-        let hasChecked = arrActive.some(item => item.checked)
-        if(hasChecked){
+export default function ToDoItem(){
+    const [pending, setPending] = useState(arrActive);
+    const checkbox = (e,i)=>{
+        arrActive[i].checked = e.target.checked;
+        const isChecked = arrActive.some(item=>item.checked);
+        if(isChecked){
             document.getElementById("moveBtn").removeAttribute("disabled")
             document.getElementById("moveBtn").addEventListener("click", ()=>{
-                if(arrActive[index].checked){
-                    arrCompleted.push(arrActive[index]);
-                    arrActive.splice(index,1)
-                    this.setState({activeArrays: arrActive})
+                if(arrActive[i].checked){
+                    arrCompleted.push(arrActive[i]);
+                    arrActive.splice(i,1);
+                    setPending(arrActive);
                     localStorage.setItem("items", JSON.stringify(arrActive));
                     localStorage.setItem("completed", JSON.stringify(arrCompleted));
+                    window.location.reload();
                 }
             })
-        } else document.getElementById("moveBtn").setAttribute("disabled", true)
+        } else document.getElementById("moveBtn").setAttribute("disabled",true);
     }
-    render(){
-        return(
-            <>
-            {this.state.activeArrays.map((item,index)=>(
-                <div className="toDoItem" key={index}>
-                    <div className="item1">
-                    <div className="left">
-                        <h3>{item.name}</h3>
-                    </div>
+    return(
+        <>
+        {pending.map((item,i)=>(
+            <div className="toDoItem" key={i}>
+                <div className="item1">
+                    <div className="left"><h3>{item.name}</h3></div>
                     <div className="right">
-                        <p><span className="green iconSpace"><span className="txtSpace"></span><Icon icon="clarity:date-line"/></span>{item.date}</p>
-                    </div>
-                    </div>
-                    <div className="item2">
-                        <input type="checkbox" name="taskcheck" onChange={(e) => this.handleCheckbox(e, index)} value={index} id="taskCheckbox"/>
+                        <p>
+                            <span className="green iconSpace">
+                                <span className="txtSpace"></span>
+                                <Icon icon="clarity:date-line"/>
+                            </span>
+                            {item.date}
+                        </p>
                     </div>
                 </div>
-            ))}
-            </>
-        )
-    }
+                <div className="item2"><input type="checkbox" name="taskcheck" onChange={(e)=>checkbox(e,i)} value={i} id="taskCheckbox"/></div>
+            </div>
+        ))}
+        </>
+    )
 }

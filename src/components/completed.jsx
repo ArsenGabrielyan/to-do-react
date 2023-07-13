@@ -1,33 +1,36 @@
-import React from "react";
 import {Icon} from "@iconify/react";
-import { arrCompleted} from "./additem";
+import { arrCompleted} from "../data/initialData";
+import { useState } from "react";
 
-export default class CompletedItem extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {completedArr: arrCompleted}
-    }
-    handleClick(index){
-        arrCompleted.splice(index,1);
-        this.setState({completedArr: arrCompleted})
+export default function CompletedItem(){
+    const [completed, setCompleted] = useState(arrCompleted);
+    const clickItem = (i)=>{
+        arrCompleted.splice(i,1);
+        setCompleted(arrCompleted);
         localStorage.setItem("completed", JSON.stringify(arrCompleted));
+        window.location.reload();
     }
-    render(){
-       return(
-        <>{this.state.completedArr.map((item,index)=>(
-            <div className="toDoItem" key={index}>
-                <div className="item1">
-                <div className="left">
-                    <h3>{item.name}</h3>
+    return(
+        <>
+            {completed.map((item,i)=>(
+                <div className="toDoItem" key={i}>
+                    <div className="item1">
+                        <div className="left"><h3>{item.name}</h3></div>
+                        <div className="right">
+                            <p>
+                                <span className="green iconSpace">
+                                    <span className="txtSpace"></span>
+                                    <Icon icon="clarity:date-line"/>
+                                </span>
+                                {item.date}
+                            </p>
+                        </div>
+                    </div>
+                    <div className="item2">
+                        <button className="deleteBtn" onClick={()=>clickItem(i)}><Icon icon="ant-design:delete-outlined"/></button>
+                    </div>
                 </div>
-                <div className="right">
-                    <p><span className="green iconSpace"><span className="txtSpace"></span> <Icon icon="clarity:date-line"/></span>{item.date}</p>
-                </div>
-                </div>
-                <div className="item2">
-                    <button className="deleteBtn" onClick={()=> this.handleClick(index)}><Icon icon="ant-design:delete-outlined" /></button>
-                </div>
-            </div>
-        ))}</>)
-    }
+            ))}
+        </>
+    )
 }
