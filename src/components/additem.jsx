@@ -27,12 +27,11 @@ export default function ToDoForm(){
         }
         e.preventDefault()
     };
-    const useToday=()=>{
-        const now = new Date();
-        setData({...data, date: `${now.getFullYear()}-${now.getMonth()<10?"0"+now.getMonth():now.getMonth()}-${now.getDate()}`})
+    const handleSetDate=()=>{
+        const now = moment().format("YYYY-MM-DD")
+        setData({...data, date: now})
     }
-    return(
-        <>
+    return <>
         <div className="menu">
             <div className="buttons">
                 <Link to="/add" className="menuButton active">Add to do</Link>
@@ -50,13 +49,12 @@ export default function ToDoForm(){
                     <input type="text" name="taskname" placeholder="Name" className="inputTxt" value={data.name} onChange={(e)=>setData({...data, name: e.target.value})}/>
                     <input type="date" name="taskdate" className="inputTxt" value={data.date} onChange={(e)=>setData({...data, date: e.target.value})}/>
                     <div className="btnControls">
-                        <button className="colbtn" type="button" onClick={useToday}>Use Today</button>
+                        <button className="colbtn" type="button" onClick={handleSetDate}>Use Today</button>
                         <button className="colbtn" type="submit">Add Task</button>
                     </div>
                 </form>
                 <h2>{data.errorBox}</h2>
             </div>
         </div>
-        </>
-    )
+    </>
 }

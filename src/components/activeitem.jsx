@@ -4,8 +4,7 @@ import ToDoItem from "./item";
 import { arrActive } from "../data/initialData";
 
 export default function ActiveItem(){
-    return(
-        <>
+    return <>
             <div className="menu">
                 <div className="buttons">
                     <Link to="/add" className="menuButton">Add to do</Link>
@@ -24,6 +23,5 @@ export default function ActiveItem(){
                     </div>
                 </>: <h2 className="txt">There are No Pending Tasks</h2>}
             </div>
-        </>
-    )
+    </>
 }

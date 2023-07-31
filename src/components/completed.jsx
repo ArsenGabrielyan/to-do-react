@@ -10,8 +10,7 @@ export default function CompletedItem(){
         localStorage.setItem("completed", JSON.stringify(arrCompleted));
         window.location.reload();
     }
-    return(
-        <>
+    return <>
             {completed.map((item,i)=>(
                 <div className="toDoItem" key={i}>
                     <div className="item1">
@@ -27,10 +26,11 @@ export default function CompletedItem(){
                         </div>
                     </div>
                     <div className="item2">
-                        <button className="deleteBtn" onClick={()=>clickItem(i)}><Icon icon="ant-design:delete-outlined"/></button>
+                        <button className="deleteBtn" onClick={()=>clickItem(i)}>
+                            <Icon icon="ant-design:delete-outlined"/>
+                        </button>
                     </div>
                 </div>
             ))}
-        </>
-    )
+    </>
 }
