@@ -1,8 +1,7 @@
 import { useState } from "react";
-import {Link} from "react-router-dom";
-import {Icon} from "@iconify/react";
 import moment from "moment/moment";
 import {initialState, arrActive } from "../data/initialData";
+import Menu from "./menu";
 
 export default function ToDoForm(){
     const [data, setData] = useState(initialState);
@@ -32,16 +31,7 @@ export default function ToDoForm(){
         setData({...data, date: now})
     }
     return <>
-        <div className="menu">
-            <div className="buttons">
-                <Link to="/add" className="menuButton active">Add to do</Link>
-                <span className="col btnAdd"><Icon icon="carbon:add-filled" /></span>
-                <Link to="/" className="menuButton">To Do List</Link>
-                <span className="col btnActiveToDos"><Icon icon="bi:card-list" /></span>
-                <Link to="/completed" className="menuButton">Completed</Link>
-                <span className="col btnCompletedToDos"><Icon icon="bi:list-check" /></span>
-            </div>
-        </div>
+        <Menu activeElement="add"/>
         <div className="container">
             <div className="addbg">
                 <h2>Add Task</h2>
