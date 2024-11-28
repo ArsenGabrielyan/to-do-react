@@ -1,0 +1,22 @@
+@import "./scss/defaults.scss";
+* {
+  margin: 0;padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+.App {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  min-height: 100vh;
+}
+.txt{
+  text-align: center;
+  color: #fff;
+  font-size: 32px;
+}
+.container {background: $black;padding: 25px;}
+.menu {background: $dark;}
+@import "./scss/buttons.scss";
+@import "./scss/item.scss";
+@import "./scss/form.scss";
+@import "./scss/responsive.scss";
